@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 class Note {
   int _id;
   String _title;
@@ -11,6 +13,10 @@ class Note {
       [this._description]);
 
   int get id => _id;
+
+  set id(int newId) {
+    this._id = newId;
+  }
 
   String get title => _title;
 
@@ -55,6 +61,8 @@ class Note {
 
     return map;
   }
+
+  String toJson() => json.encode(toMap());
 
   // Extract a Note object from a Map object
   Note.fromMapObject(Map<String, dynamic> map) {

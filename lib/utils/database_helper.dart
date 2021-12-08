@@ -2,7 +2,7 @@ import 'package:sqflite/sqflite.dart';
 import 'dart:async';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
-import 'package:flutter_app/models/note.dart';
+import 'package:flutter_app/data/models/note.dart';
 
 class DatabaseHelper {
   static DatabaseHelper _databaseHelper; // Singleton DatabaseHelper
@@ -96,7 +96,7 @@ class DatabaseHelper {
     int count =
         noteMapList.length; // Count the number of map entries in db table
 
-    List<Note> noteList = List<Note>();
+    List<Note> noteList = [];
     // For loop to create a 'Note List' from a 'Map List'
     for (int i = 0; i < count; i++) {
       noteList.add(Note.fromMapObject(noteMapList[i]));
